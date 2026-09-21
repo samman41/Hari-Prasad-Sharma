@@ -30,4 +30,25 @@ document.addEventListener('DOMContentLoaded', () => {
             if (contactsSection) contactsSection.classList.remove('visible');
         }
     });
+
+    // vCard Download Logic
+    const saveContactBtn = document.querySelector('.btn-save');
+    if (saveContactBtn) {
+        saveContactBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const vcardContent = `BEGIN:VCARD\nVERSION:3.0\nN:Sharma;Hari;Prasad;;\nFN:Hari Prasad Sharma\nORG:EURO GREEN MOTORS PVT. LTD. (BYD Chitwan)\nTITLE:Authorized Dealer\nTEL;TYPE=WORK,VOICE:+9779801368497\nTEL;TYPE=CELL,VOICE:+9779801368497\nEMAIL;TYPE=PREF,INTERNET:eurogreenmotorspvtltd@gmail.com\nURL:https://www.facebook.com/bydchitwan\nADR;TYPE=WORK:;;Chitwan;Bagmati;;;Nepal\nEND:VCARD`;
+            
+            const blob = new Blob([vcardContent], { type: 'text/vcard;charset=utf-8' });
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'Hari_Prasad_Sharma.vcf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Clean up
+            setTimeout(() => window.URL.revokeObjectURL(url), 100);
+        });
+    }
 });
