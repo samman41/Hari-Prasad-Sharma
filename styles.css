@@ -82,12 +82,7 @@ html {
     pointer-events: none;
 }
 
-.header-name {
-    font-size: 16px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--text-color);
+.header-text-container {
     opacity: 0;
     max-width: 0;
     margin-left: 0;
@@ -95,6 +90,25 @@ html {
     transform: translateX(-10px);
     transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
     white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header-name {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-color);
+}
+
+.header-title {
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    text-transform: capitalize;
 }
 
 .logo {
@@ -116,12 +130,20 @@ html {
     padding-right: 15px;
 }
 
-.header.scrolled .header-name {
+.header.scrolled .header-text-container {
     opacity: 1;
     max-width: 300px;
     margin-left: 12px;
     transform: translateX(0);
+}
+
+.header.scrolled .header-name {
     font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.header.scrolled .header-title {
+    font-size: 11px;
     letter-spacing: 0.5px;
 }
 
@@ -168,9 +190,7 @@ html {
     text-align: center;
     text-transform: uppercase;
     text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
-    background: linear-gradient(90deg, #fff, #b3b3b3);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #ffffff;
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
