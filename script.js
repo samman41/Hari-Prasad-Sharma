@@ -36,7 +36,25 @@ document.addEventListener('DOMContentLoaded', () => {
     if (saveContactBtn) {
         saveContactBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            const vcardContent = `BEGIN:VCARD\nVERSION:3.0\nN:Sharma;Hari;Prasad;;\nFN:Hari Prasad Sharma\nORG:EURO GREEN MOTORS PVT. LTD. (BYD Chitwan)\nTITLE:Authorized Dealer\nTEL;TYPE=WORK,VOICE:+9779801368497\nTEL;TYPE=CELL,VOICE:+9779801368497\nEMAIL;TYPE=PREF,INTERNET:eurogreenmotorspvtltd@gmail.com\nURL:https://www.facebook.com/bydchitwan\nADR;TYPE=WORK:;;Chitwan;Bagmati;;;Nepal\nEND:VCARD`;
+            const vcardContent = `BEGIN:VCARD
+VERSION:3.0
+N:Sharma;Hari;Prasad;;
+FN:Hari Prasad Sharma
+ORG:EURO GREEN MOTORS PVT. LTD. (BYD Chitwan)
+TITLE:Authorized Dealer
+TEL;TYPE=WORK,VOICE:+9779801368497
+TEL;TYPE=CELL,VOICE:+9779801368497
+EMAIL;TYPE=PREF,INTERNET:eurogreenmotorspvtltd@gmail.com
+URL;type=Location:https://maps.app.goo.gl/NnG1KEJ6zdmMWRQRA
+URL;type=WhatsApp:https://wa.me/9779801368497
+URL;type=Facebook:https://www.facebook.com/bydchitwan
+URL;type=Instagram:https://www.instagram.com/byd_chitwan/
+URL;type=TikTok:https://www.tiktok.com/@byd.chitwan
+X-SOCIALPROFILE;type=facebook:https://www.facebook.com/bydchitwan
+X-SOCIALPROFILE;type=instagram:https://www.instagram.com/byd_chitwan/
+X-SOCIALPROFILE;type=tiktok:https://www.tiktok.com/@byd.chitwan
+ADR;TYPE=WORK:;;Euro Green Motors;Chitwan;Bagmati;;Nepal
+END:VCARD`;
             
             const blob = new Blob([vcardContent], { type: 'text/vcard;charset=utf-8' });
             const url = window.URL.createObjectURL(blob);
