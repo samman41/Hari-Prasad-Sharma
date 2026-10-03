@@ -82,35 +82,6 @@ html {
     pointer-events: none;
 }
 
-.header-text-container {
-    opacity: 0;
-    max-width: 0;
-    margin-left: 0;
-    overflow: hidden;
-    transform: translateX(-10px);
-    transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
-    white-space: nowrap;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.header-name {
-    font-size: 16px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--text-color);
-}
-
-.header-title {
-    font-size: 12px;
-    font-weight: 300;
-    letter-spacing: 1px;
-    color: var(--text-muted);
-    text-transform: capitalize;
-}
-
 .logo {
     width: 220px;
     max-width: 80%;
@@ -128,23 +99,6 @@ html {
     justify-content: center;
     padding-left: 15px;
     padding-right: 15px;
-}
-
-.header.scrolled .header-text-container {
-    opacity: 1;
-    max-width: 300px;
-    margin-left: 12px;
-    transform: translateX(0);
-}
-
-.header.scrolled .header-name {
-    font-size: 14px;
-    letter-spacing: 0.5px;
-}
-
-.header.scrolled .header-title {
-    font-size: 11px;
-    letter-spacing: 0.5px;
 }
 
 .header.scrolled .logo {
@@ -177,27 +131,59 @@ html {
     padding-bottom: 40px;
 }
 
-.company-name {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
+.profile-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     width: 100%;
-    margin-top: 25px;
-    font-size: 22px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-align: center;
-    text-transform: uppercase;
-    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
-    color: #ffffff;
-    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-.company-name.hidden {
-    opacity: 0;
-    transform: translate(-50%, -20px);
-    pointer-events: none;
+.profile-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.profile-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-color);
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+.profile-title {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--accent-color);
+    margin-bottom: 2px;
+}
+
+.profile-company {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
 }
 
 .scroll-indicator.hidden {
