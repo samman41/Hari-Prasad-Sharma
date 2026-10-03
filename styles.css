@@ -27,6 +27,7 @@ html {
     overflow-x: hidden;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
+    scroll-snap-type: y mandatory;
 }
 
 /* ========================================== */
@@ -72,7 +73,7 @@ html {
     left: 0;
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 100;
@@ -106,6 +107,45 @@ html {
     filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
 }
 
+.dealer-info {
+    text-align: center;
+    margin-top: 15px;
+    padding: 0 20px;
+    opacity: 1;
+    max-height: 120px;
+    transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.business-name {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-color);
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    margin: 0;
+}
+
+.dealer-details {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+    margin: 0;
+}
+
+.header.scrolled .dealer-info {
+    opacity: 0;
+    max-height: 0;
+    margin-top: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
 /* ========================================== */
 /* SCROLL CONTAINER & LAYOUT                  */
 /* ========================================== */
@@ -129,6 +169,7 @@ html {
     align-items: center;
     padding-top: 50vh;
     padding-bottom: 40px;
+    scroll-snap-align: start;
 }
 
 .profile-card {
@@ -278,6 +319,7 @@ html {
     padding: 100px 25px 100px;
     display: flex;
     flex-direction: column;
+    scroll-snap-align: start;
 }
 
 /* ========================================== */
